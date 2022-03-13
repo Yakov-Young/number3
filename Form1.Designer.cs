@@ -57,7 +57,7 @@ namespace lab_3
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1076, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(943, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,9 +69,9 @@ namespace lab_3
             this.рассчитатьToolStripMenuItem,
             this.очиститьToolStripMenuItem,
             this.сгенерироватьToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 587);
+            this.menuStrip2.Location = new System.Drawing.Point(0, 421);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1076, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(943, 24);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -109,9 +109,9 @@ namespace lab_3
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.x,
             this.y});
-            this.dataGridView1.Location = new System.Drawing.Point(136, 27);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(244, 270);
+            this.dataGridView1.Size = new System.Drawing.Size(244, 418);
             this.dataGridView1.TabIndex = 2;
             // 
             // x
@@ -131,7 +131,7 @@ namespace lab_3
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 350);
+            this.label1.Location = new System.Drawing.Point(272, 327);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(25, 13);
             this.label1.TabIndex = 4;
@@ -140,7 +140,7 @@ namespace lab_3
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(102, 349);
+            this.label3.Location = new System.Drawing.Point(339, 326);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 6;
@@ -149,7 +149,7 @@ namespace lab_3
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(102, 366);
+            this.label4.Location = new System.Drawing.Point(339, 343);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 7;
@@ -158,7 +158,7 @@ namespace lab_3
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 366);
+            this.label5.Location = new System.Drawing.Point(272, 343);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 8;
@@ -166,7 +166,7 @@ namespace lab_3
             // 
             // zedGraphControl1
             // 
-            this.zedGraphControl1.Location = new System.Drawing.Point(386, 27);
+            this.zedGraphControl1.Location = new System.Drawing.Point(259, 12);
             this.zedGraphControl1.Name = "zedGraphControl1";
             this.zedGraphControl1.ScrollGrace = 0D;
             this.zedGraphControl1.ScrollMaxX = 0D;
@@ -182,7 +182,7 @@ namespace lab_3
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(469, 350);
+            this.label2.Location = new System.Drawing.Point(611, 327);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 13);
             this.label2.TabIndex = 10;
@@ -191,7 +191,7 @@ namespace lab_3
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(469, 363);
+            this.label6.Location = new System.Drawing.Point(611, 343);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(159, 13);
             this.label6.TabIndex = 11;
@@ -199,7 +199,7 @@ namespace lab_3
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(136, 303);
+            this.textBox1.Location = new System.Drawing.Point(367, 398);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(244, 20);
             this.textBox1.TabIndex = 12;
@@ -207,7 +207,7 @@ namespace lab_3
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 306);
+            this.label7.Location = new System.Drawing.Point(254, 401);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 13);
             this.label7.TabIndex = 13;
@@ -217,7 +217,7 @@ namespace lab_3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1076, 611);
+            this.ClientSize = new System.Drawing.Size(943, 445);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label6);
