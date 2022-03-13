@@ -13,8 +13,8 @@ namespace lab_3
 {
     public partial class Form1 : Form
     {
-        double maximum = -1 * Math.Pow(2, 69);
-        double minimum = Math.Pow(2, 69);
+        double max = Double.MinValue;  //Диапазоны рисовки графиков
+        double min = Double.MaxValue;
 
         List<double> listX = new List<double>();
         public Form1()
@@ -88,8 +88,8 @@ namespace lab_3
             graphic.Start();
 
 
-            zedGraphControl1.AxisChange();
-            zedGraphControl1.Invalidate();
+            zedGraphControl1.AxisChange();  //Масштабирование и обновление данных
+            zedGraphControl1.Invalidate();  //Обновление графика
         }
 
         private void quadraticFunc()
@@ -104,7 +104,7 @@ namespace lab_3
             double yifyi = 0; // сумма (yi - y^) 
             double yimyavg = 0; // сумма (yi - yсреднее)
             double yavg; // y среднее
-            double determ;
+            string determ;
             int tableCount = dataGridView1.RowCount - 1;
             double a, b, c;
             double det, deta, detb, detc;
@@ -137,16 +137,16 @@ namespace lab_3
             if (b >= 0)
             {
                 exp += Convert.ToString(a).Replace(',', '.') + "*x^2+" + Convert.ToString(b).Replace(',', '.') + "*x";
-                exp_output += Convert.ToString(Math.Round(a, 3)).Replace(',', '.') + "*x^2+" + Convert.ToString(Math.Round(b, 3)).Replace(',', '.') + "*x";
+                exp_output += Convert.ToString(Math.Round(a, 4)).Replace(',', '.') + "*x^2+" + Convert.ToString(Math.Round(b, 4)).Replace(',', '.') + "*x";
                 if (c >= 0)
                 {
                     exp += "+" + Convert.ToString(c).Replace(',', '.');
-                    exp_output += "+" + Convert.ToString(Math.Round(c, 3)).Replace(',', '.');
+                    exp_output += "+" + Convert.ToString(Math.Round(c, 4)).Replace(',', '.');
                 }
                 else
                 {
                     exp += Convert.ToString(c).Replace(',', '.');
-                    exp_output += Convert.ToString(Math.Round(c, 3)).Replace(',', '.');
+                    exp_output += Convert.ToString(Math.Round(c, 4)).Replace(',', '.');
                 }
             }
             else
@@ -174,26 +174,28 @@ namespace lab_3
     
             }
 
-            determ = Math.Pow(Math.Sqrt(1 - yifyi / yimyavg), 2); // Коэффициент детерминации
+            determ = (Math.Pow(Math.Sqrt(1 - yifyi / yimyavg), 2)).ToString(); // Коэффициент детерминации
 
             for (int i = 0; i < dataGridView1.RowCount; i++)
             {
-                if (Convert.ToDouble(dataGridView1[0, i].Value) > maximum)
+                if (Convert.ToDouble(dataGridView1[0, i].Value) > max)
                 {
-                    maximum = Convert.ToDouble(dataGridView1[0, i].Value);
+                    max = Convert.ToDouble(dataGridView1[0, i].Value);
                 }
-                if (Convert.ToDouble(dataGridView1[0, i].Value) < minimum)
+                if (Convert.ToDouble(dataGridView1[0, i].Value) < min)
                 {
-                    minimum = Convert.ToDouble(dataGridView1[0, i].Value);
+                    min = Convert.ToDouble(dataGridView1[0, i].Value);
                 }
             }
 
-            for (int i = Convert.ToInt32(minimum); i <= maximum; i++)
+            int minimumInt = Convert.ToInt32(min);
+
+            for (; minimumInt <= max; minimumInt++)
             {
-                quadraticList.Add(i, func(i, exp));
+                quadraticList.Add(minimumInt, func(minimumInt, exp));
             }
 
-            label6.Invoke((MethodInvoker)delegate { label6.Text = "Коэффициент детерминации: " + determ.ToString(); });
+            label6.Invoke((MethodInvoker)delegate { label6.Text = "Коэффициент детерминации: " + determ; });
             label4.Invoke((MethodInvoker)delegate { label4.Text = "Функция: " + exp_output; });
             addPoints(quadraticList, "Квадратичная функция");
         }
@@ -205,7 +207,7 @@ namespace lab_3
             double xy = 0;
             double x2 = 0;
             double y2 = 0;
-            double determ; // Коэфициент детерминации
+            string determ; // Коэфициент детерминации
             int textCount = dataGridView1.RowCount - 1;
             double a, b;
             string exp;
@@ -223,7 +225,7 @@ namespace lab_3
             }
             a = ((xi * yi) - textCount * xy) / (Math.Pow(xi, 2) - textCount * x2);
             b = (xi * xy - x2 * yi) / (Math.Pow(xi, 2) - textCount * x2);
-            determ = Math.Pow((textCount * xy - xi * yi) / Math.Sqrt((textCount * x2 - Math.Pow(xi, 2)) * (textCount * y2 - Math.Pow(yi, 2))), 2); // нахождение коэфициента детерминации
+            determ = (Math.Pow((textCount * xy - xi * yi) / Math.Sqrt((textCount * x2 - Math.Pow(xi, 2)) * (textCount * y2 - Math.Pow(yi, 2))), 2)).ToString(); // нахождение коэфициента детерминации
             if (b >= 0)
             {
                 exp = Convert.ToString(a).Replace(',', '.') + "*x+" + Convert.ToString(b).Replace(',', '.');
@@ -237,23 +239,23 @@ namespace lab_3
 
             for (int i = 0; i < dataGridView1.RowCount; i++)
             {
-                if (Convert.ToDouble(dataGridView1[0, i].Value) > maximum)
+                if (Convert.ToDouble(dataGridView1[0, i].Value) > max)
                 {
-                    maximum = Convert.ToDouble(dataGridView1[0, i].Value);
+                    max = Convert.ToDouble(dataGridView1[0, i].Value);
                 }
-                if (Convert.ToDouble(dataGridView1[0, i].Value) < minimum)
+                if (Convert.ToDouble(dataGridView1[0, i].Value) < min)
                 {
-                    minimum = Convert.ToDouble(dataGridView1[0, i].Value);
+                    min = Convert.ToDouble(dataGridView1[0, i].Value);
                 }
             }
 
-            for (int i = Convert.ToInt32(minimum); i <= maximum; i++)
+            for (int i = Convert.ToInt32(min); i <= max; i++)
             {
                 
                 linearList.Add(i, func(i, exp));
             }
 
-            label2.Invoke((MethodInvoker)delegate { label2.Text = "Коэффициент детерминации: " + determ.ToString(); });
+            label2.Invoke((MethodInvoker)delegate { label2.Text = "Коэффициент детерминации: " + determ; });
             label3.Invoke((MethodInvoker)delegate { label3.Text = "Функция: " + exp_output; });
             addPoints(linearList, "Линейная функция");
 
@@ -284,13 +286,13 @@ namespace lab_3
             {
                 graph.AddCurve(name, l, Color.Blue, SymbolType.None);
             }
-            else
+            else if (name == "Квадратичная функция")
             {
                 graph.AddCurve(name, l, Color.Red, SymbolType.None);
             }
 
-            zedGraphControl1.AxisChange();
-            zedGraphControl1.Invalidate();
+            zedGraphControl1.AxisChange();  //Масштабирование и обновление данных
+            zedGraphControl1.Invalidate();  //Обновление графика
         }
 
         private void очиститьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -299,7 +301,7 @@ namespace lab_3
             zedGraphControl1.GraphPane.CurveList.Clear();
             listX.Clear();
 
-            zedGraphControl1.AxisChange();  //Масштабирование и обновление данных об j
+            zedGraphControl1.AxisChange();  //Масштабирование и обновление данных
             zedGraphControl1.Invalidate();  //Обновление графика
         }
 
